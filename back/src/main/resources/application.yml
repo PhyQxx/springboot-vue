@@ -1,0 +1,30 @@
+##端口号配置
+server:
+  port: 8068
+
+## mybatis配置
+mybatis-plus::
+  mapper-locations: classpath*:com/phy/py/dao/mapping/*.xml
+  typeAliasesPackage: com.phy.py.model
+
+##日志打印级别
+logging:
+  level:
+    com.qinxx.hslink.dao : debug
+
+##数据源配置
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/pnkx?serverTimezone=Hongkong&useUnicode=true&characterEncoding=utf8
+#    url: jdbc:mysql://106.53.113.158:3306/pnkx?serverTimezone=Hongkong&useUnicode=true&characterEncoding=utf8
+    username: root
+#    username: root
+    password: 123456
+#    password: Beater123
+    db-name: pnkx
+    filters: log4j,wall,mergeStat
+    driverClassName: com.mysql.cj.jdbc.Driver
+
+##文件路径
+#window环境下
+filePath: ${user.dir}\src\main\resources\static\files
