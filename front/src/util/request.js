@@ -3,7 +3,7 @@ import axios from 'axios'
 // 创建一个axios实例
 const service = axios.create({
   headers: {
-    'content-type': 'application/json;charset=UTF-8',
+    // 'content-type': 'application/json;charset=UTF-8',
     // 'token': 'one' 
   },
   //服务器地址
@@ -24,12 +24,14 @@ service.interceptors.request.use(config => {
 // 添加响应拦截器
 service.interceptors.response.use(response => {
   const res = response.data;
+  console.log('成功', res);
   // 如果返回的状态不是200 就主动报错
   if(res.code !== 200){
     return Promise.reject(res.message || 'error')
   }
   return response;
 }, error => {
-    return Promise.reject(error.response); // 返回接口返回的错误信息
+  console.log('失败', res);
+  return Promise.reject(error.response); // 返回接口返回的错误信息
 })
 export default service

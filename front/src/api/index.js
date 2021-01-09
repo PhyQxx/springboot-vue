@@ -2,11 +2,12 @@ import request from '@/util/request';
 
 export function test(params) {
 
+    /**
+     * 根据id获取用户信息
+     */
     return request({
-        url: '/px/test',
+        url: '/px-user/getUserInfo',
         method: 'post',
-        params: {
-            name: '111'
-        }        
+        data: params  
     })
 }
